@@ -46,9 +46,10 @@ public class Stats {
         System.out.println("Sorting time: " + getDurationBreakdown(msSort));
 
         long searchStart = System.currentTimeMillis();
+        String found = search.binarySearchString(findList, fileList);
         long searchEnd = System.currentTimeMillis();
         long msSearch = searchEnd - searchStart;
-//        System.out.println(found + "Searching time: " + getDurationBreakdown(msSearch));
+        System.out.println(found + "Searching time: " + getDurationBreakdown(msSearch));
 
     }
 

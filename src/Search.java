@@ -52,5 +52,27 @@ public class Search {
         return "Found " + found + "/" + numberOfLines + " entries";
     }
 
-    public int binarySearch(List<String> directory, )
+    public String binarySearchString(List<String> findList, List<String> directory) {
+        int found = 0;
+        for (int i = 0; i < findList.size(); i++) {
+            if(binarySearch(directory, findList.get(i), 0, directory.size() - 1)) {
+                found++;
+            }
+        }
+        return "Found " + found + "/" + findList.size() + " entries. ";
+    }
+
+    private boolean binarySearch(List<String> directory, String name, int left, int right) {
+        if(left > right) {
+            return false;
+        }
+        int mid = (left + right) >>> 1;
+        if(name.equals(directory.get(mid).substring(directory.get(mid).indexOf(' ') + 1))) {
+            return true;
+        } else if(name.compareTo(directory.get(mid).substring(directory.get(mid).indexOf(' ') + 1)) < 0) {
+            return binarySearch(directory, name, left, mid - 1);
+        } else {
+            return binarySearch(directory, name, mid + 1, right);
+        }
+    }
 }
