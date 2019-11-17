@@ -51,4 +51,6 @@ public class Search {
         }
         return "Found " + found + "/" + numberOfLines + " entries";
     }
+
+    public int binarySearch(List<String> directory, )
 }

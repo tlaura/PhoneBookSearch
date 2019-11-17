@@ -36,6 +36,22 @@ public class Stats {
         }
     }
 
+    public void quickSortAndBinarySearch() {
+        System.out.println("Start searching (quick sort + binary search)...");
+
+        long sortStart = System.currentTimeMillis();
+        sort.quickSort(fileList, 0, fileList.size()-1);
+        long sortEnd = System.currentTimeMillis();
+        long msSort = sortEnd - sortStart;
+        System.out.println("Sorting time: " + getDurationBreakdown(msSort));
+
+        long searchStart = System.currentTimeMillis();
+        long searchEnd = System.currentTimeMillis();
+        long msSearch = searchEnd - searchStart;
+//        System.out.println(found + "Searching time: " + getDurationBreakdown(msSearch));
+
+    }
+
     public void linearSearch() {
         System.out.println("Start searching (linear search)...");
         long start = System.currentTimeMillis();
