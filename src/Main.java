@@ -9,6 +9,5 @@ public class Main {
         stat.linearSearch();
         System.out.println();
         stat.bubbleAndJump();
-
     }
 }
