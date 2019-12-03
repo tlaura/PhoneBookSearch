@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -20,20 +21,6 @@ public class Stats {
         this.find = find;
         setDirectoryList();
         setList();
-    }
-
-    private void setList() throws FileNotFoundException {
-        Scanner findScan = new Scanner(find);
-        while (findScan.hasNextLine()) {
-            findList.add(findScan.nextLine());
-        }
-    }
-
-    private void setDirectoryList() throws FileNotFoundException {
-        Scanner fileScan = new Scanner(file);
-        while(fileScan.hasNextLine()) {
-            fileList.add(fileScan.nextLine());
-        }
     }
 
     public void quickSortAndBinarySearch() {
@@ -78,6 +65,21 @@ public class Stats {
         System.out.println(found + "Searching time: " + getDurationBreakdown(msSearch));
     }
 
+    public void hashMapSearch() {
+        System.out.println("Start searching (hash map)...");
+        long startCreation = System.currentTimeMillis();
+        Map<String, String> map = sort.createTable(fileList);
+        long endCreation = System.currentTimeMillis();
+        long msCreation = endCreation - startCreation;
+        System.out.println("Creation time: " + getDurationBreakdown(msCreation));
+
+        long startSearch = System.currentTimeMillis();
+        String found = search.mapSearch(map, findList);
+        long endSearch = System.currentTimeMillis();
+        long msSearch = endSearch - startSearch;
+        System.out.println(found + "Searching time: " + getDurationBreakdown(msSearch));
+    }
+
     public static String getDurationBreakdown(long milliseconds) {
         long minutes = TimeUnit.MILLISECONDS.toMinutes(milliseconds);
         milliseconds -= TimeUnit.MINUTES.toMillis(minutes);
@@ -94,6 +96,20 @@ public class Stats {
         sb.append(" ms.");
 
         return sb.toString();
+    }
+
+    private void setList() throws FileNotFoundException {
+        Scanner findScan = new Scanner(find);
+        while (findScan.hasNextLine()) {
+            findList.add(findScan.nextLine());
+        }
+    }
+
+    private void setDirectoryList() throws FileNotFoundException {
+        Scanner fileScan = new Scanner(file);
+        while(fileScan.hasNextLine()) {
+            fileList.add(fileScan.nextLine());
+        }
     }
 
 }

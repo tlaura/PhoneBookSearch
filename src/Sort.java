@@ -1,5 +1,7 @@
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Sort {
     public List<String> bubbleSort(List<String> directory) {
@@ -24,6 +26,16 @@ public class Sort {
             quickSort(directory, left, partitionInd - 1);
             quickSort(directory, partitionInd + 1, right);
         }
+    }
+
+    public Map<String, String> createTable(List<String> directory) {
+        Map<String, String> mapDirectory = new HashMap<>();
+        for (int i = 0; i < directory.size(); i++) {
+            String name = directory.get(i).substring(directory.get(i).indexOf(' ') + 1);
+            String phone = directory.get(i).substring(0, directory.get(i).indexOf(' '));
+            mapDirectory.put(name, phone);
+        }
+        return mapDirectory;
     }
 
     private static int partition(List<String> names, int left, int right) {

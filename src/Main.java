@@ -10,10 +10,10 @@ public class Main {
         File file = new File("/Users/tundelaura/Desktop/java/directory.txt");
         File find = new File("/Users/tundelaura/Desktop/java/find.txt");
         Stats stat = new Stats(file, find);
-        stat.linearSearch();
+//        stat.linearSearch();
         System.out.println();
 //        stat.bubbleAndJump();
-        stat.quickSortAndBinarySearch();
+        stat.hashMapSearch();
 
 //        Scanner scanner = new Scanner(System.in);
 //        list.add("Lyndel Raymond");

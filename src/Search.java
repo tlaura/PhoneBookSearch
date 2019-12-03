@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Map;
 
 public class Search {
 
@@ -48,6 +49,17 @@ public class Search {
                 found++;
             }
             numberOfLines++;
+        }
+        return "Found " + found + "/" + numberOfLines + " entries";
+    }
+
+    public String mapSearch(Map<String, String> directory, List<String> findList) {
+        int found = 0;
+        int numberOfLines = findList.size();
+        for(String name: findList) {
+            if (directory.containsKey(name)) {
+                found++;
+            }
         }
         return "Found " + found + "/" + numberOfLines + " entries";
     }
