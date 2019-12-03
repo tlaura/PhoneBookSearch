@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
         List<String> list =  new ArrayList<>();
-        File file = new File("/Users/tundelaura/Desktop/java/directory.txt");
-        File find = new File("/Users/tundelaura/Desktop/java/find.txt");
+        File file = new File("/Users/tundelaura/Desktop/java/phoneBook/directory.txt");
+        File find = new File("/Users/tundelaura/Desktop/java/phoneBook/find.txt");
         Stats stat = new Stats(file, find);
 //        stat.linearSearch();
         System.out.println();
